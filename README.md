@@ -1,14 +1,14 @@
-# Hello! – Event Sourcing with Postgres Triggers
+# Hello! – Event Sourcing with Postgres
 
-A prototype implementation of event sourcing architecture using Postgres triggers for immediate materialization of read models.
+A prototype implementation of event sourcing architecture using Postgres views and materialized views for querying current and historical states.
 
 Inspired by [this article](https://www.heise.de/blog/Event-Sourcing-Die-bessere-Art-zu-entwickeln-10258295.html) / [this video](https://www.youtube.com/watch?v=ss9wnixCGRY) from Golo Roden.
 
 ## Key Concepts
 
 - Events are stored in dedicated event tables with UUIDv7 IDs for sequential ordering
-- Postgres triggers automatically maintain read-only materialized views of business aggregates
-- Read models are always consistent with event history
+- Unified event view provides flexible querying of the event stream
+- Materialized views maintain read models with point-in-time snapshots
 - Simple architecture that leverages Postgres features rather than external components
 
 ## Example Model
@@ -29,7 +29,7 @@ Each event is stored in its own table that inherits from a base `events` table c
 - `event_type`
 - `metadata`
 
-The events are processed by Postgres triggers to maintain a read-only `pets` table that shows the current state of each pet including:
+The events are unified in a view that provides flexible querying capabilities. The current state is maintained in materialized views that can show:
 
 - Basic details (name, species)
 - Current price
@@ -37,7 +37,7 @@ The events are processed by Postgres triggers to maintain a read-only `pets` tab
 - Ownership information
 - Audit fields (created/updated timestamps)
 
-This provides a simple example of event sourcing while maintaining immediately consistent read models through database triggers.
+This provides a flexible event sourcing implementation that allows querying both current and historical states.
 
 ## Running the Example
 
@@ -51,6 +51,7 @@ podman-compose exec postgres psql -U postgres hello
 
 # Try running some test queries
 ```sql
-SELECT * FROM pets;
-SELECT * FROM events;
+SELECT * FROM unified_events;
+SELECT * FROM pets_state;
+SELECT * FROM pets_state_snapshot;
 ```
