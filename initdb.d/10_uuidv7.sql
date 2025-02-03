@@ -3,6 +3,11 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto" SCHEMA public;
 
 CREATE SEQUENCE IF NOT EXISTS uuid_v7_seq MAXVALUE 16383;
 
+-- WARNING: This is not a standards-compliant UUIDv7 implementation.
+-- While UUIDv7 specifies uniformly random bytes for the non-timestamp portion,
+-- this implementation uses a sequence counter to guarantee local monotonicity.
+-- This makes it non-interoperable with standard UUIDv7 implementations.
+-- TODO: use a Postgres Extension with a proper UUIDv7 implementation.
 CREATE OR REPLACE FUNCTION uuid_generate_v7() 
 RETURNS uuid
 AS $$
