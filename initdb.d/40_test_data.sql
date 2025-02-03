@@ -139,13 +139,6 @@ BEGIN
         rover_id, '2025-02-28', 'Park', 'PET_FOUND', '2025-02-28 10:45:00'
     );
 
-    -- Charlie is found
-    INSERT INTO pet_found_events (
-        pet_id, found_date, found_location, event_type, created_at
-    ) VALUES (
-        charlie_id, '2025-03-01', 'Behind food storage', 'PET_FOUND', '2025-03-01 09:15:00'
-    );
-
     -- Sales
     INSERT INTO pet_sold_events (
         pet_id, customer_id, sale_price, event_type, created_at
@@ -163,12 +156,6 @@ BEGIN
         pet_id, customer_id, sale_price, event_type, created_at
     ) VALUES (
         bella_id, customer3_id, 130.00, 'PET_SOLD', '2025-03-10 16:45:00'
-    );
-
-    INSERT INTO pet_sold_events (
-        pet_id, customer_id, sale_price, event_type, created_at
-    ) VALUES (
-        charlie_id, customer1_id, 30.00, 'PET_SOLD', '2025-03-15 14:20:00'
     );
 
     INSERT INTO pet_sold_events (
