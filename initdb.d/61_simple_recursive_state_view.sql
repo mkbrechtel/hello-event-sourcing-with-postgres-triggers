@@ -39,7 +39,7 @@ WITH RECURSIVE event_processing AS (
 )
 -- Select the final state for each pet
 SELECT DISTINCT ON (ep.pet_id)
-    (ep.current_state).pet_id,
+    ep.pet_id,
     (ep.current_state).name,
     (ep.current_state).species,
     (ep.current_state).current_price,
