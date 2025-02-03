@@ -100,3 +100,5 @@ SELECT
     metadata
 FROM event_union
 ORDER BY id;
+
+SELECT * FROM unified_events;
