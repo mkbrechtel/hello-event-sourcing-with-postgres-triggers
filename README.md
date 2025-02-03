@@ -22,6 +22,16 @@ The example implementation models a simple pet store with the following events:
 - `PetLost` - A pet goes missing
 - `PetFoundAgain` - A lost pet is found
 
+> In our little pet store, so cozy and bright,
+> We track all the moments, from morning till night.
+> But one special event you won't find in our code,
+> Is when pets cross that final, rainbow road.
+
+> For this is a happy example, you see,
+> Where pets live forever, as they should be.
+> No PetDied events in our database here,
+> Just joyful moments we hold so dear!
+
 Each event is stored in its own table that inherits from a base `events` table containing common fields like:
 
 - `id` (UUIDv7 for temporal ordering)
