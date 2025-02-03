@@ -77,8 +77,33 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Trigger to refresh the materialized view when events are added
-CREATE TRIGGER refresh_pets_snapshot_trigger
-AFTER INSERT ON events
+-- Create triggers for each child table
+CREATE TRIGGER refresh_pets_snapshot_pet_arrived
+AFTER INSERT ON pet_arrived_events
+FOR EACH ROW
+EXECUTE FUNCTION refresh_pets_snapshot();
+
+CREATE TRIGGER refresh_pets_snapshot_pet_born
+AFTER INSERT ON pet_born_events
+FOR EACH ROW
+EXECUTE FUNCTION refresh_pets_snapshot();
+
+CREATE TRIGGER refresh_pets_snapshot_pet_sold
+AFTER INSERT ON pet_sold_events
+FOR EACH ROW
+EXECUTE FUNCTION refresh_pets_snapshot();
+
+CREATE TRIGGER refresh_pets_snapshot_pet_price_change
+AFTER INSERT ON pet_price_change_events
+FOR EACH ROW
+EXECUTE FUNCTION refresh_pets_snapshot();
+
+CREATE TRIGGER refresh_pets_snapshot_pet_lost
+AFTER INSERT ON pet_lost_events
+FOR EACH ROW
+EXECUTE FUNCTION refresh_pets_snapshot();
+
+CREATE TRIGGER refresh_pets_snapshot_pet_found
+AFTER INSERT ON pet_found_events
 FOR EACH ROW
 EXECUTE FUNCTION refresh_pets_snapshot();
