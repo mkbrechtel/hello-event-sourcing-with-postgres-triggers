@@ -2,7 +2,7 @@
 
 A prototype implementation of event sourcing architecture using Postgres triggers for immediate materialization of read models.
 
-Inspired by [this article](https://www.heise.de/blog/Event-Sourcing-Die-bessere-Art-zu-entwickeln-10258295.html) / [this video](https://www.youtube.com/watch?v=ss9wnixCGRY) from Golo Roden.
+Inspired by [this (german) article](https://www.heise.de/blog/Event-Sourcing-Die-bessere-Art-zu-entwickeln-10258295.html) / [this (german) video](https://www.youtube.com/watch?v=ss9wnixCGRY)  from Golo Roden.
 
 ## Key Concepts
 
