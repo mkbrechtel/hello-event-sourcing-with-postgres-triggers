@@ -1,19 +1,19 @@
 DO $$
 DECLARE
-    fluffy_id UUID := uuid_generate_v7();
-    whiskers_id UUID := uuid_generate_v7();
-    rover_id UUID := uuid_generate_v7();
-    hammy_id UUID := uuid_generate_v7();
-    bella_id UUID := uuid_generate_v7();
-    max_id UUID := uuid_generate_v7();
-    charlie_id UUID := uuid_generate_v7();
-    axolotl_id UUID := uuid_generate_v7();
-    octopus_id UUID := uuid_generate_v7();
-    sandpuppy_id UUID := uuid_generate_v7();
-    customer1_id UUID := uuid_generate_v7();
-    customer2_id UUID := uuid_generate_v7();
-    customer3_id UUID := uuid_generate_v7();
-    mother_cat_id UUID := uuid_generate_v7();
+    fluffy_id UUID := uuid_generate_v4();
+    whiskers_id UUID := uuid_generate_v4();
+    rover_id UUID := uuid_generate_v4();
+    hammy_id UUID := uuid_generate_v4();
+    bella_id UUID := uuid_generate_v4();
+    max_id UUID := uuid_generate_v4();
+    charlie_id UUID := uuid_generate_v4();
+    axolotl_id UUID := uuid_generate_v4();
+    octopus_id UUID := uuid_generate_v4();
+    sandpuppy_id UUID := uuid_generate_v4();
+    customer1_id UUID := uuid_generate_v4();
+    customer2_id UUID := uuid_generate_v4();
+    customer3_id UUID := uuid_generate_v4();
+    mother_cat_id UUID := uuid_generate_v4();
 BEGIN
     -- Mother cat arrives
     INSERT INTO pet_arrived_events (
